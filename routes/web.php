@@ -63,6 +63,6 @@ Route::get('/auth/redirect', [LoginController::class, 'redirectToGithub']);
 Route::get('/auth/callback', [LoginController::class, 'handleGithubCallback']);
 
 Route::get('/login/linkedin', [LoginController::class, 'redirectToLinkedin'])->name('linkedin.login');
-Route::get('/login/linkedin/callback', [LoginController::class, 'handleLinkedinCallback']);
+Route::get('/linkedin/callback', [LoginController::class, 'handleLinkedinCallback']);
 
 

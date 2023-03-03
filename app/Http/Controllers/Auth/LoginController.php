@@ -48,23 +48,25 @@ class LoginController extends Controller
     public function handleLinkedinCallback()
     {
         $linkedinUser = Socialite::driver('linkedin')->user();
-
         // Check if the user already exists in your database
-        $user = User::where('linkedin_id', $linkedinUser->id)->first();
+        $user = User::where('linkedin_id', $linkedinUser->id)
+        ->orWhere('email', $linkedinUser->email)->first();
 
-        if (!$user) {
-            // User doesn't exist, create a new one
-            $user = new User();
-            $user->name = $linkedinUser->name;
-            $user->email = $linkedinUser->email;
-            $user->linkedin_id = $linkedinUser->id;
-            $user->save();
+        if ($user) {
+            $user->update([
+                'linkedin_id' => $linkedinUser->id,
+            ]);
+        } else {
+            $user = User::create([
+                'name' => $linkedinUser->name,
+                'email' => $linkedinUser->email,
+                'linkedin_id' => $linkedinUser->id,
+            ]);
         }
 
-        // Log in the user
         auth()->login($user);
 
         // Redirect to home page or dashboard
-        return redirect('/');
+        return redirect('/dashboard');
     }
 }

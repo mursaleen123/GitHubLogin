@@ -54,9 +54,7 @@
             </div>
         </a>
         <br>
-        <a href="/auth/redirect" class="inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-dark uppercase tracking-widest hover:bg-gray-700  focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4">
-            <div>
-                <div class="hover:text-white"> LOGIN with </div>
+        <a href="/login/linkedin" class="inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-dark uppercase tracking-widest hover:bg-gray-700  focus:bg-gray-700 active:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="loader__linkedin-logo" width="60" height="18.631578947368421" viewBox="0 0 190 48">
                     <g>
                       <g>
@@ -64,7 +62,6 @@
                       </g>
                     </g>
                   </svg>
-            </div>
         </a>
 
     </x-authentication-card>
